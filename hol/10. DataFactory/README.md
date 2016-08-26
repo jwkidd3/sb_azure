@@ -298,7 +298,7 @@ Next we create the  pipeline with a HDInsightHive activity. Note that input slic
 }
 ```
 ## Dependencies ##
-Add input.log as a dependency
+Add partitionweblogs.hql as a dependency
 
 1. Right-click Dependencies in the Solution Explorer window, select Add, and click Existing Item.
 1. Navigate to partitionweblogs.hql and select.
