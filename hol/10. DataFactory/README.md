@@ -263,8 +263,8 @@ Next we create the  pipeline with a HDInsightHive activity. Note that input slic
         "type": "HDInsightHive",
         "typeProperties": {
           "defines": {
-            "inputtable": "wasb://adf@sbuxjkstore.blob.core.windows.net/data",
-            "partitionedtable": "wasb://adf@sbuxjkstore.blob.core.windows.net/partitioneddata"
+            "inputtable": "wasb://<containername>@<store>.blob.core.windows.net/data",
+            "partitionedtable": "wasb://<containername>@<store>.blob.core.windows.net/partitioneddata"
           },
           "scriptLinkedService": "AzureStorageLinkedService1",
           "scriptPath": "adf/scripts/partweblogs.hql"
