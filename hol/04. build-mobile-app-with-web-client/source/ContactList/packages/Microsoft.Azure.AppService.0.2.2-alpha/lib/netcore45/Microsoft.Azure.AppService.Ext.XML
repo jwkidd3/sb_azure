@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Azure.AppService.Ext</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Azure.AppService.AppServiceClientExtensions">
+            <summary>
+            Extension methods for UI-based login.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.AppService.AppServiceClientExtensions.LoginAsync(Microsoft.Azure.AppService.IAppServiceClient,System.String,System.Boolean,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Log a user into AppService based app given a provider name.
+            </summary>
+            <param name="client">
+            The AppServiceClient instance to login with.
+            </param>
+            <param name="provider">
+            Authentication provider to use.
+            </param>
+            <param name="parameters">
+            Provider specific extra parameters that are sent as query string parameters to login endpoint.
+            </param>
+            <param name="useSingleSignOn">
+            Indicates that single sign-on should be used. Single sign-on requires that the
+            application's Package SID be registered with the AppService gateway, but it
+            provides a better experience as HTTP cookies are supported so that users do not have to
+            login in everytime the application is launched.
+            </param>
+            <returns>
+            Task that will complete when the user has finished authentication.
+            </returns>
+        </member>
+    </members>
+</doc>

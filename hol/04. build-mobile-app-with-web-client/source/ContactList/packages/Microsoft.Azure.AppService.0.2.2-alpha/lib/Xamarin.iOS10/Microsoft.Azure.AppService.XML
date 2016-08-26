@@ -1,0 +1,263 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Azure.AppService</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Azure.AppService.AppServiceAuthenticationHandler">
+            <summary>
+            A HttpMessageHandler that attaches the authentication information for the currently logged in user to the request.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.AppService.AppServiceClient">
+            <summary>
+            The main starting point for interacting with an Azure AppService based application. 
+            Provides user authentication functionality and access to Api App and Mobile App client objects.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.AppService.IAppServiceClient">
+            <summary>
+            Represents the main starting point for interacting with an Azure AppService based application. 
+            Provides user authentication functionality and access to Api App and Mobile App client objects.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.AppService.IAppServiceClient.CreateHandler(System.Net.Http.DelegatingHandler[])">
+            <summary>
+            Creates a DelegatingHandler wired into a pipeline that consists of the specified handlers and all existing handlers registered with the IAppServiceClient instance.
+            </summary>
+            <param name="handlers">DelegatingHandler instances to be wired into the pipeline.</param>
+            <returns>The outer DelegatingHandler of the resulting HttpMessageHandler pipeline.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.AppService.IAppServiceClient.CreateApiAppClient(System.Uri)">
+            <summary>
+            Creates an instance of HttpClient ready for communication with the Api App located at the given address.
+            </summary>
+            <param name="address">The Uri for the Api App</param>        
+            <returns>An HttpClient instance with the base address set to the Uri for the ApiApp</returns>
+        </member>
+        <member name="M:Microsoft.Azure.AppService.IAppServiceClient.CreateApiAppClient(System.Uri,System.Net.Http.DelegatingHandler[])">
+            <summary>
+            Creates an instance of HttpClient ready for communication with the Api App located at the given address.
+            </summary>
+            <param name="address">The Uri for the Api App</param>        
+            <param name="handlers">A set of DelegatingHandler instances that should be wired into the http pipeline of the HttpClient.</param>
+            <returns>An HttpClient instance with the base address set to the Uri for the ApiApp and the specified handlers wired in to its pipeline.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.AppService.IAppServiceClient.LoginAsync(System.String,Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Logs a user in using a token acquired from the specified provider.
+            </summary>
+            <param name="provider">
+            The Authentication provider the token is associated with.
+            </param>
+            <param name="token">
+            Provider specific object with existing OAuth token to log in with.
+            </param>
+            <remarks>
+            The token object needs to be formatted depending on the specific provider. These are some
+            examples of formats based on the providers:
+            <list type="bullet">
+              <item>
+                <term>MicrosoftAccount</term>
+                <description><code>{"authenticationToken":"&lt;the_authentication_token&gt;"}</code></description>
+              </item>
+              <item>
+                <term>Facebook</term>
+                <description><code>{"access_token":"&lt;the_access_token&gt;"}</code></description>
+              </item>
+              <item>
+                <term>Google</term>
+                <description><code>{"access_token":"&lt;the_access_token&gt;"}</code></description>
+              </item>
+            </list>
+            </remarks>
+            <returns>
+            Task that will complete when the user has finished authentication.
+            </returns>
+        </member>
+        <member name="M:Microsoft.Azure.AppService.IAppServiceClient.Logout">
+            <summary>
+            Logs the user out.
+            </summary>        
+        </member>
+        <member name="M:Microsoft.Azure.AppService.IAppServiceClient.SetCurrentUser(System.String,System.String)">
+            <summary>
+            Sets the currently authenticated user using the specified id and authentication token.
+            </summary>
+            <remarks>
+            This is useful in scenarios where the authentication token has been cached on the device to avoid repeated logins.
+            </remarks>
+            <param name="userId">The userId to set.</param>
+            <param name="authenticationToken">The authentication token to set.</param>
+        </member>
+        <member name="M:Microsoft.Azure.AppService.IAppServiceClient.GetConsentLinkAsync(System.String,System.String)">
+            <summary>
+            Obtain a login URI for the specified Api App.
+            </summary>
+            <param name="apiApp">The name of the Api App to obtain the login URI for</param>
+            <param name="redirectUrl">The redirect URL that should be embedded in the returned Login URI</param>
+            <returns>The LoginURI for the specified Api App.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.AppService.IAppServiceClient.GetAllConsentLinksAsync(System.String)">
+            <summary>
+            Get all available consent links required for installed Api Apps.
+            </summary>
+            <param name="redirectUrl">Redirect url to be used when logging in to any of these links.</param>
+            <returns>Dictionary of api app name -> redirect url</returns>
+        </member>
+        <member name="P:Microsoft.Azure.AppService.IAppServiceClient.CurrentUser">
+            <summary>
+            The current authenticated user provided after a successful call to IAppServiceClient.Login().        
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.AppService.AppServiceClient.#ctor(System.String)">
+            <summary>
+            Creates a new instance of AppServiceClient with the specified gatewayUri and wires the specified handlers into the HTTP pipeline.
+            </summary>
+            <param name="gatewayUri">The URI of the AppService gateway.</param>
+        </member>
+        <member name="M:Microsoft.Azure.AppService.AppServiceClient.#ctor(System.String,System.Net.Http.DelegatingHandler[])">
+            <summary>
+            Creates a new instance of AppServiceClient with the specified gatewayUri and wires the specified handlers into the HTTP pipeline.
+            </summary>
+            <param name="gatewayUri">The URI of the AppService gateway.</param>
+            <param name="handlers">The DelegatingHandler instances to wire into the HTTP pipeline.</param>
+        </member>
+        <member name="M:Microsoft.Azure.AppService.AppServiceClient.SetCurrentUser(System.String,System.String)">
+            <summary>
+            Sets the currently authenticated user using the specified id and authentication token.
+            </summary>
+            <remarks>
+            This is useful in scenarios where the authentication token has been cached on the device to avoid repeated logins.
+            </remarks>
+            <param name="userId">The userId to set.</param>
+            <param name="authenticationToken">The authentication token to set.</param>
+        </member>
+        <member name="M:Microsoft.Azure.AppService.AppServiceClient.CreateHandler(System.Net.Http.DelegatingHandler[])">
+            <summary>
+            Creates a DelegatingHandler wired into a pipeline that consists of the specified handlers and all existing handlers registered with the IAppServiceClient instance.
+            </summary>
+            <param name="handlers">DelegatingHandler instances to be wired into the pipeline.</param>
+            <returns>The outer DelegatingHandler of the resulting HttpMessageHandler pipeline.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.AppService.AppServiceClient.Logout">
+            <summary>
+            Logs the user out.
+            </summary>    
+        </member>
+        <member name="M:Microsoft.Azure.AppService.AppServiceClient.LoginAsync(System.String,Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Logs a user in using a token acquired from the specified provider.
+            </summary>
+            <param name="provider">
+            The Authentication provider the token is associated with.
+            </param>
+            <param name="token">
+            Provider specific object with existing OAuth token to log in with.
+            </param>
+            <remarks>
+            The token object needs to be formatted depending on the specific provider. These are some
+            examples of formats based on the providers:
+            <list type="bullet">
+              <item>
+                <term>MicrosoftAccount</term>
+                <description><code>{"authenticationToken":"&lt;the_authentication_token&gt;"}</code></description>
+              </item>
+              <item>
+                <term>Facebook</term>
+                <description><code>{"access_token":"&lt;the_access_token&gt;"}</code></description>
+              </item>
+              <item>
+                <term>Google</term>
+                <description><code>{"access_token":"&lt;the_access_token&gt;"}</code></description>
+              </item>
+            </list>
+            </remarks>
+            <returns>
+            Task that will complete when the user has finished authentication.
+            </returns>
+        </member>
+        <member name="M:Microsoft.Azure.AppService.AppServiceClient.CreateApiAppClient(System.Uri)">
+            <summary>
+            Creates an instance of HttpClient ready for communication with the Api App located at the given address.
+            </summary>
+            <param name="address">The Uri for the Api App</param>        
+            <returns>An HttpClient instance with the base address set to the Uri for the ApiApp</returns>
+        </member>
+        <member name="M:Microsoft.Azure.AppService.AppServiceClient.CreateApiAppClient(System.Uri,System.Net.Http.DelegatingHandler[])">
+            <summary>
+            Creates an instance of HttpClient ready for communication with the Api App located at the given address.
+            </summary>
+            <param name="address">The Uri for the Api App</param>        
+            <param name="handlers">A set of DelegatingHandler instances that should be wired into the http pipeline of the HttpClient.</param>
+            <returns>An HttpClient instance with the base address set to the Uri for the ApiApp and the specified handlers wired in to its pipeline.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.AppService.AppServiceClient.GetConsentLinkAsync(System.String,System.String)">
+            <summary>
+            Obtain a login URI for the specified Api App.
+            </summary>
+            <param name="apiApp">The name of the Api App to obtain the login URI for</param>
+            <param name="redirectUrl">The redirect URL that should be embedded in the returned Login URI</param>
+            <returns>The LoginURI for the specified Api App.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.AppService.AppServiceClient.GetAllConsentLinksAsync(System.String)">
+            <summary>
+            Get all available consent links required for installed Api Apps.
+            </summary>
+            <param name="redirectUrl">Redirect url to be used when logging in to any of these links.</param>
+            <returns>Dictionary of api app name -> redirect url</returns>
+        </member>
+        <member name="P:Microsoft.Azure.AppService.AppServiceClient.CurrentUser">
+            <summary>
+            The current authenticated user provided after a successful call to IAppServiceClient.Login().        
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.AppService.IAppServiceUser">
+            <summary>
+            Represents a user that has been successfully authenticated by the AppService gateway.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.AppService.IAppServiceUser.UserId">
+            <summary>
+            An id value that can be used to uniquely identify a given user within the scope of a particular AppService gateway.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.AppService.IAppServiceUser.AuthenticationToken">
+            <summary>
+            The authentication token sent on all requests to identify the user.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.AppService.AppServiceMobileClientExtensions">
+            <summary>
+            Provides extension methods for obtaining instances of IMobileServiceClient from a given IAppServiceClient.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.AppService.AppServiceMobileClientExtensions.CreateMobileServiceClient(Microsoft.Azure.AppService.IAppServiceClient,System.String)">
+            <summary>
+            Creates a new IMobileServiceClient instance configured with the specified URI for the Mobile App.
+            </summary>
+            <param name="appServiceClient">The IAppServiceClient.</param>
+            <param name="mobileAppUri">The URI of the Mobile App.</param>
+            <returns>An instance of IMobileServiceClient.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.AppService.AppServiceMobileClientExtensions.CreateMobileServiceClient(Microsoft.Azure.AppService.IAppServiceClient,System.String,System.Net.Http.DelegatingHandler[])">
+            <summary>
+            Creates a new IMobileServiceClient instance configured with the specified URI for the Mobile App.
+            </summary>
+            <param name="appServiceClient">The IAppServiceClient.</param>        
+            <param name="mobileAppUri">The URI of the Mobile App.</param>
+            <param name="handlers">The delegating handlers to wire into the HTTP pipeline of the returned IMobileServiceClient</param>
+            <returns>An instance of IMobileServiceClient.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.AppService.AppServiceMobileClientExtensions.CreateMobileServiceClient(Microsoft.Azure.AppService.IAppServiceClient,System.String,System.String,System.Net.Http.DelegatingHandler[])">
+            <summary>
+            Creates a new IMobileServiceClient instance configured with the specified URI for the Mobile App.
+            </summary>
+            <param name="appServiceClient">The IAppServiceClient.</param>        
+            <param name="mobileAppUri">The URI of the Mobile App.</param>
+            <param name="appKey">The application key of the Mobile App.</param>
+            <param name="handlers">The delegating handlers to wire into the HTTP pipeline of the returned IMobileServiceClient</param>
+            <returns>An instance of IMobileServiceClient.</returns>
+        </member>
+    </members>
+</doc>

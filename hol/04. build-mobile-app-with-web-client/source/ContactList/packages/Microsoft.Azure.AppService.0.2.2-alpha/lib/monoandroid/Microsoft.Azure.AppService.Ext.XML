@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Azure.AppService.Ext</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Azure.AppService.AppServiceClientExtensions">
+            <summary>
+            Extension methods for UI-based login.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.AppService.AppServiceClientExtensions.LoginAsync(Microsoft.Azure.AppService.IAppServiceClient,Android.Content.Context,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Log a user into AppService based app given a provider name.
+            </summary>
+            <param name="client">
+            The AppServiceClient instance to login with.
+            </param>
+            <param name="context" type="Android.Content.Context">
+            The Context to display the Login UI in.
+            </param>
+            <param name="provider" type="string">
+            The name of the authentication provider to use.
+            </param>
+            <param name="parameters">
+            Provider specific extra parameters that are sent as query string parameters to login endpoint.
+            </param>
+            <returns>
+            Task that will complete when the user has finished authentication.
+            </returns>
+        </member>
+    </members>
+</doc>

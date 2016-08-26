@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Azure.AppService.Ext</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Azure.AppService.AppService">
+            <summary>
+            Provides a place to put the Init method used to deal with xamarin assembly optimization issues
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.AppService.AppService.Init">
+            <summary>
+            Xamarin.iOS projects need to call this API to make sure that the platform specific assembly is included
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.AppService.AppServiceClientExtensions">
+            <summary>
+            Extension methods for UI-based login.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.AppService.AppServiceClientExtensions.LoginAsync(Microsoft.Azure.AppService.IAppServiceClient,UIKit.UIViewController,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Log a user into AppService based app given a provider name.
+            </summary>
+            <param name="client">
+            The AppServiceClient instance to login with.
+            </param>
+            <param name="controller" type="MonoTouch.UIKit.UIViewController">
+            UIViewController used to display modal login UI.
+            </param>
+            <param name="provider" type="string">
+            The name of the authentication provider to use.
+            </param>
+            <param name="parameters">
+            Provider specific extra parameters that are sent as query string parameters to login endpoint.
+            </param>
+            <returns>
+            Task that will complete when the user has finished authentication.
+            </returns>
+        </member>
+        <member name="M:Microsoft.Azure.AppService.AppServiceClientExtensions.LoginAsync(Microsoft.Azure.AppService.IAppServiceClient,System.Drawing.RectangleF,UIKit.UIView,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Log a user into AppService based app given a provider name.
+            </summary>
+            <param name="client">
+            The AppServiceClient instance to login with.
+            </param>
+            <param name="rectangle" type="System.Drawing.RectangleF">
+            The area in <paramref name="view"/> to anchor to.
+            </param>
+            <param name="view" type="MonoTouch.UIKit.UIView">
+            UIView used to display a popover from on iPad.
+            </param>
+            <param name="provider" type="string">
+            The name of the authentication provider to use.
+            </param>
+            <param name="parameters">
+            Provider specific extra parameters that are sent as query string parameters to login endpoint.
+            </param>
+            <returns>
+            Task that will complete when the user has finished authentication.
+            </returns>
+        </member>
+        <member name="M:Microsoft.Azure.AppService.AppServiceClientExtensions.LoginAsync(Microsoft.Azure.AppService.IAppServiceClient,UIKit.UIBarButtonItem,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Log a user into AppService based app given a provider name.
+            </summary>
+            <param name="client">
+            The AppServiceClient instance to login with.
+            </param>
+            <param name="barButtonItem" type="MonoTouch.UIKit.UIBarButtonItem">
+            UIBarButtonItem used to display a popover.
+            </param>
+            <param name="provider" type="string">
+            The name of the authentication provider to use.
+            </param>
+            <param name="parameters">
+            Provider specific extra parameters that are sent as query string parameters to login endpoint.
+            </param>
+            <returns>
+            Task that will complete when the user has finished authentication.
+            </returns>
+        </member>
+    </members>
+</doc>
