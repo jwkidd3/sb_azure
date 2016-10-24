@@ -27,52 +27,51 @@ In this task, you will learn about the portal and how to create a new Web App an
 
 	> **Note:** You can right-click the tiles of the Dashboard to customize it. You can pin or unpin tiles and change their size.
 
-	![Startboard](Images/startboard.png?raw=true)
+	<!--![Startboard](Images/startboard.png?raw=true)
 
-	_Your Home Page: The Dashboard_
+	_Your Home Page: The Dashboard_ -->
 
  3. On the left side, you will see the **Hub Menu**. This is the navigation menu where you can access all of your resources and options. Click the **New** button at the top of the **Hub Menu**.
 
-	![Creating a new resource](Images/creating-a-new-resource.png?raw=true)
+	<!-- ![Creating a new resource](Images/creating-a-new-resource.png?raw=true)
 
-	_Creating a new resource_
+	_Creating a new resource_ -->
 
  4. A panel is displayed with different options. You can choose one of the options to create a new resource. Click the **Web + mobile** category to see all the available options.
 
-	![Displaying every resource type](Images/displaying-resource-types.png?raw=true)
+	<!-- ![Displaying every resource type](Images/displaying-resource-types.png?raw=true)
 
-	_Displaying every resource type_
+	_Displaying every resource type_ -->
 
 	On the next screen, you get all the available options for Web, Mobile Apps and other Azure App Service Apps. Click on the **See all**. You can find ready to use templates.
 
-	![Azure Marketplace](Images/web-mobile-apps-options.png?raw=true)
+	<!-- ![Azure Marketplace](Images/web-mobile-apps-options.png?raw=true)
 
-	_Azure Marketplace_
-
+	_Azure Marketplace_ -->
 
  5. Find the **Web app + SQL** option and then click it.
 
-	![Selecting Web App](Images/selecting-website-sql.png?raw=true)
+	<!-- ![Selecting Web App](Images/selecting-website-sql.png?raw=true)
 
-	_Selecting Web app + SQL_
+	_Selecting Web app + SQL_ -->
 
 	Then click **Create**.
 
-	![Creating Web app](Images/create-web-app-sql.png?raw=true)
+	<!-- ![Creating Web app](Images/create-web-app-sql.png?raw=true)
 
-	_Create a new Web app + SQL_
+	_Create a new Web app + SQL_ -->
 
 	A _blade_ is opened. Blades are your entry point to discovering insights, performing actions and building applications. This particular _blade_ collects input from you to create a new **Web App**.
 
 	> **Note:** For more information about _blades_, you can click the **Tour** tile on your **Dashboard**. On the **Tour** blade, scroll down to the bottom and click **Learn more**. A new blade is opened with further information. You can continue the **Tour** to learn the basics of Blades, Commands, Lenses and more.
 
-	> ![Tour](Images/tour.png?raw=true)
+	<!-- > ![Tour](Images/tour.png?raw=true) -->
 
  6. Select *App Service Name* option, another blade is opened which displays the options to create a new **Web app**. Select a URL for your Web app, for example _myMSAzureWebsite_. Take into account that this name must be unique. Also fill in the **Create new App Service Plan** or **Select existing** if you already have one.
 
-	![Creating the App Service Plan](Images/changing-the-web-hosting-plan.png?raw=true)
+	<!-- ![Creating the App Service Plan](Images/changing-the-web-hosting-plan.png?raw=true)
 
-	_Creating the App Service Plan_
+	_Creating the App Service Plan_ -->
 
  7. If you would like to change the Pricing Tier, click on the **Pricing Tier**. In the _Choose your pricing tier_ blade, you can choose the App Service plan that fits your needs.
 
@@ -80,9 +79,9 @@ In this task, you will learn about the portal and how to create a new Web App an
 
 	> **Note:** For all tiers (except 'Shared') you pay one price for the App Service plan based on the tier and your chosen capacity with no additional charge for each site that uses the plan. Shared App Service plans are different; due to the nature of the shared infrastructure, you are charged separately for each app in the plan. Click _Select_ once you select a relevant plan. This should take you to the previous blade for _Web App_ options.
 
-	![_Selecting a Pricing Tier](Images/selecting-a-web-hosting-plan.png?raw=true)
+	<!-- ![_Selecting a Pricing Tier](Images/selecting-a-web-hosting-plan.png?raw=true)
 
-	_Selecting a Pricing Tier_
+	_Selecting a Pricing Tier_ -->
 
  8. Select a relevant location and click OK.
 
@@ -90,80 +89,80 @@ In this task, you will learn about the portal and how to create a new Web App an
 
 	>**Note:** If there are any existing databases asociated to the user, the **Database** blade will show up. Select **Create a new Database**.
 
-	![Changing your database settings](Images/changing-your-database-settings.png?raw=true)
+	<!-- ![Changing your database settings](Images/changing-your-database-settings.png?raw=true)
 
-	_Changing your database settings_
+	_Changing your database settings_ -->
 
  10. Set a name for the database, e.g. _mywebsite-db_, and click the **Server** option.
 
 	> **Note:** You can also enter in the **Pricing Tier** section and explore the different pricing tiers.
 
-	![Database Settings](Images/database-settings.png?raw=true)
+	<!-- ![Database Settings](Images/database-settings.png?raw=true)
 
-	_Database Settings_
+	_Database Settings_ -->
 
  11. Enter the **Server Name**, **Server admin login** and a **Password**. Click **OK** to go back to the **New Database** blade, and click **OK** to close it.
 
-	![Configuring the Database Server](Images/configuring-the-database-server.png?raw=true)
+	<!-- ![Configuring the Database Server](Images/configuring-the-database-server.png?raw=true)
 
-	_Configuring the Database Server_
-	
+	_Configuring the Database Server_ -->
+
  12. When you create an application that consists of several resources working together (like in this example, a Web app + SQL), it is always created in its own resource group so that you can manage the lifecycle of all related assets. Choose a name for the **Resource Group**, for example _MyResourceGroup_, and click the **Web app** option.
 
 	> **Note:** Resource group names can only contain letters, numbers, periods, underscores and dashes.
 
-	![New Web App](Images/new-resource-group.png?raw=true)
+	<!-- ![New Web App](Images/new-resource-group.png?raw=true)
 
-	_New Resource Group_
+	_New Resource Group_ -->
 
  13. Now you are ready to create your resource group. Click **Create**.
 
- 14. On the right top, click bell icon for **Notifications**. You can see status of the creation process in the **Notifications** section. 
+ 14. On the right top, click bell icon for **Notifications**. You can see status of the creation process in the **Notifications** section.
 
-	![Notifications](Images/notifications.png?raw=true)
+	<!-- ![Notifications](Images/notifications.png?raw=true)
 
-	_Notifications_
+	_Notifications_ -->
 
  15. Once the Resource group is successfully created the notification message accordingly displays the relevant message.
-	
-	![Created Resource Group Notification](Images/created-resource-group-notification.png?raw=true)
 
-	_Created Resource Group Notification_
-	
- 16. Notice that the recently created resource group was automatically added to the Dashboard for easy access. 
+	<!-- ![Created Resource Group Notification](Images/created-resource-group-notification.png?raw=true)
 
-	![Resource Group added to Dashboard](Images/resource-group-added-to-startboard.png?raw=true)
+	_Created Resource Group Notification_ -->
+
+ 16. Notice that the recently created resource group was automatically added to the Dashboard for easy access.
+
+	<!-- ![Resource Group added to Dashboard](Images/resource-group-added-to-startboard.png?raw=true) -->
 
  17. Click on the name of the resource group to open it. You created your new resource group, which includes a Web App, a SQL Server and a SQL Database.
 
-	![New Resource Group Blade](Images/new-resource-group-blade.png?raw=true)
+	<!-- ![New Resource Group Blade](Images/new-resource-group-blade.png?raw=true)
 
-	_New Resource Group Blade_
+	_New Resource Group Blade_ -->
 
 	>**Note:** It is good practice to cleanup any resources that will not be used. To delete the demo resources just created, follow these steps:
 	>
 	>1. In the Resource Group, click **DELETE** at the top of the page.
 	>
-	>![Clicking Delete Resource Group](Images/clicking-delete-resource-group.png?raw=true)
+	<!-- >![Clicking Delete Resource Group](Images/clicking-delete-resource-group.png?raw=true)
 	>
-	>_Clicking Delete_
+	>_Clicking Delete_ -->
 	>
 	>1. In the Confirmation blade that opens, type the name of the resource group and click the **Delete** button.
 	>
-	>![Deleting Resource Group Confirmation](Images/deleting-resource-group-confirmation.png?raw=true)
+	<!-- >![Deleting Resource Group Confirmation](Images/deleting-resource-group-confirmation.png?raw=true)
 	>
-	>_Delete Confirmation_
+	>_Delete Confirmation_ -->
 	>
 	>After a few moments you should see a notification in the Notifications Hub indicating the resource group was deleted.
 	>
-	>![Notification after Resource Group was deleted](Images/notification-after-resource-group-was-deleted.png?raw=true)
+	<!-- >![Notification after Resource Group was deleted](Images/notification-after-resource-group-was-deleted.png?raw=true) -->
 	>
 	>1. Navigate to the Dashboard. Once there, find and right-click the tile for the resource group. Click **unpin from Dashboard**.
 	>
-	>![Unpin Resource Group from Dashboard](Images/unpin-resource-group-from-startboard.png?raw=true)
+	<!-- >![Unpin Resource Group from Dashboard](Images/unpin-resource-group-from-startboard.png?raw=true)
 	>
 	>_Unpinning Resource Group from DashBoard_
-	>The tile is removed.
+	>The tile is removed. -->
 
 
 <a name="Summary"></a>

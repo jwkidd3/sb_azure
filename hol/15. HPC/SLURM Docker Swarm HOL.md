@@ -10,8 +10,8 @@ The [Simple Linux Utility for Resource Management](https://computing.llnl.gov/li
 
 SLURM clusters can be built from real machines or virtual machines. Today, they can also be built from containers. A *container* is a self-contained package that includes everything needed to run a job, including code, run-time, system tools, and libraries. Containers are similar to VMs, but they feature lower overhead and faster startup times. One of the most popular container formats is [Docker](https://www.docker.com/), which is an open-source containerization platform. Bundling your code in Docker containers provides portability between platforms such as Microsoft Azure and Amazon Web Services (AWS) and lets you avoid being tied to a specific cloud-platform vendor.
 
-To simplify the use of Docker containers, Azure offers the [Azure Container Service](https://azure.microsoft.com/en-us/services/container-service/) (ACS), which hosts Docker containers in the cloud and includes an optimized configuration of popular open-source scheduling and orchestration tools, including [DC/OS](https://dcos.io/) and [Docker Swarm](https://www.docker.com/products/docker-swarm). The latter uses native clustering capabilities to turn a group of Docker engines into a single virtual Docker engine and is the perfect tool for the job of creating SLURM clusters from Docker containers. 
- 
+To simplify the use of Docker containers, Azure offers the [Azure Container Service](https://azure.microsoft.com/en-us/services/container-service/) (ACS), which hosts Docker containers in the cloud and includes an optimized configuration of popular open-source scheduling and orchestration tools, including [DC/OS](https://dcos.io/) and [Docker Swarm](https://www.docker.com/products/docker-swarm). The latter uses native clustering capabilities to turn a group of Docker engines into a single virtual Docker engine and is the perfect tool for the job of creating SLURM clusters from Docker containers.
+
 In this lab, you will create a SLURM cluster from a swarm of Docker container instances hosted in ACS and run a Python script in those container instances to convert a batch of color images to grayscale.
 
 <a name="Objectives"></a>
@@ -62,49 +62,49 @@ Before you can deploy Docker images to Azure, you must create an Azure container
 
 1. Launch PuTTYGen and click the **Generate** button. For the next few seconds, move your cursor around in the empty space in the "Key" box to help randomize the keys that are generated.
 
- 	![Generating a public/private key pair](Images/docker-puttygen1.png)
+ 	<!-- ![Generating a public/private key pair](Images/docker-puttygen1.png)
 
-	_Generating a public/private key pair_
+	_Generating a public/private key pair_ -->
 
 2. Once the keys are generated, click **Save public key** and save the public key to a text file named public.txt. Then click **Save private key** and save the private key to a file named private.ppk. When prompted to confirm that you want to save the private key without a passphrase, click **Yes**.
 
- 	![Saving the public and private keys](Images/docker-puttygen2.png)
+ 	<!-- ![Saving the public and private keys](Images/docker-puttygen2.png)
 
-	_Saving the public and private keys_
+	_Saving the public and private keys_ -->
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. Select **+ New -> Containers -> Azure Container Service**. Then click the **Create** button at the bottom of the "Azure Container Service" blade.
 
-	![Creating a container service](Images/docker-new-container.png)
+	<!-- ![Creating a container service](Images/docker-new-container.png)
 
-	_Creating a container service_
+	_Creating a container service_ -->
 
 1. Click **Basics** in the "Azure Container Service" blade. In the "Basics" blade, enter a user name for connecting to the container service (be sure to remember the name you enter!), the public key that you generated with PuTTYGen and saved to a text file, and the subscription you want to charge to. Select **Create new** under **Resource group** and enter the resource-group name "ACSLabResourceGroup" (without quotation marks). Select the location nearest you under **Location**, and then click the **OK** button.
 
-	![Basic settings](Images/docker-acs-basics.png)
+	<!-- ![Basic settings](Images/docker-acs-basics.png)
 
-	_Basic settings_
+	_Basic settings_ -->
 
 1. In the "Framework configuration" blade, select **Swarm** as the orchestrator configuration. Then click **OK**.
 
 	> DC/OS and Swarm are popular open-source orchestration tools that enable you to deploy clusters containing thousands or even tens of thousands of containers. (Think of a compute cluster consisting of containers rather than physical servers, all sharing a load and running code in parallel.) DC/OS is a distributed operating system based on the Apache Mesos distributed systems kernel. Swarm is Docker's own native clustering tool. Both are preinstalled in Azure Container Service, with the goal being that you can use the one you are most familiar with rather than have to learn a new tool.
 
-	![Framework configuration settings](Images/docker-acs-framework-configuration.png)
+	<!-- ![Framework configuration settings](Images/docker-acs-framework-configuration.png)
 
-	_Framework configuration settings_
+	_Framework configuration settings_ -->
 
 1. In the "Azure Container service settings" blade, set **Agent count** to **2**, **Master count** to **1**, and enter a DNS name in the **DNS prefix** box. (The DNS name doesn't have to be unique across Azure, but it does have to be unique to a data center.) Then click **OK**.
 
 	> When you create an Azure container service, one or more master VMs are created to orchestrate the workload. In addition, an [Azure Virtual Machine Scale Set](https://azure.microsoft.com/en-us/documentation/articles/virtual-machine-scale-sets-overview/) is created to provide VMs for the "agents," or VMs that the master VMs delegate work to. Docker container instances are hosted in the agent VMs. By default, Azure uses a standard D2 virtual machine for each agent. These are dual-core machines with 7 GB of RAM. Agent VMs are created as needed to handle the workload. In this example, there will be one master VM and up to two agent VMs, regardless of the number of Docker container instances.
 
-	![Service settings](Images/docker-acs-service-settings.png)
+	<!-- ![Service settings](Images/docker-acs-service-settings.png)
 
-	_Service settings_
+	_Service settings_ -->
 
 1. In the "Summary" blade, review the settings you selected. Then click **OK**.
 
-	![Settings summary](Images/docker-acs-summary.png)
+	<!-- ![Settings summary](Images/docker-acs-summary.png)
 
-	_Settings summary_
+	_Settings summary_ -->
 
 1. In the ensuing "Purchase" blade, click the **Purchase** button to begin deploying a new container service.
 
@@ -112,9 +112,9 @@ Before you can deploy Docker images to Azure, you must create an Azure container
 
 	> Click the browser's **Refresh** button every few minutes to update the deployment status. Clicking the **Refresh** button in the resource-group blade doesn't reliably update the status.
 
-	![Successful deployment](Images/docker-success.png)
+	<!-- ![Successful deployment](Images/docker-success.png)
 
-	_Successful deployment_
+	_Successful deployment_ -->
 
 Take a short break and wait for the deployment to finish. Then proceed to Exercise 2.
 
@@ -125,55 +125,55 @@ SLURM can be run in Docker containers, with each container instance acting as a 
 
 1. After the container service finishes deploying, return to the blade for the resource group that contains the container service. Then click the resource named **swarm-master-lb-xxxxxxxx**. This is the master load balancer for the swarm.
 
-	![Opening the master load balancer](Images/docker-open-master-lb.png)
+	<!-- ![Opening the master load balancer](Images/docker-open-master-lb.png)
 
-	_Opening the master load balancer_
+	_Opening the master load balancer_ -->
 
 1. Click the IP address under "Public IP Address."
 
-	![The master load balancer's public IP](Images/docker-click-ip-address.png)
+	<!-- ![The master load balancer's public IP](Images/docker-click-ip-address.png)
 
-	_The master load balancer's public IP_
+	_The master load balancer's public IP_ -->
 
 1. Hover over the DNS name under "DNS Name." Wait for a **Copy** button to appear, and then click it to copy the master load balancer's DNS name to the clipboard.
 
-	![Copying the DNS name](Images/docker-copy-dns-name.png)
+	<!-- ![Copying the DNS name](Images/docker-copy-dns-name.png)
 
-	_Copying the DNS name_
+	_Copying the DNS name_ -->
 
 1. Launch PuTTY and paste the DNS name on the clipboard into the **Host Name (or IP address)** box. Set the port number to **2200** and type "ACS" (without quotation marks) into the **Saved Sessions** box. Click the **Save** button to save these settings under that name.
 
 	> Why port 2200 instead of port 22, which is the default for SSH? Because the load balancer you're connecting to listens on port 2200 and forwards the SSH messages it receives to port 22 on the master VM.
 
-	![Configuring a PuTTY session](Images/docker-putty1.png)
+	<!-- ![Configuring a PuTTY session](Images/docker-putty1.png)
 
-	_Configuring a PuTTY session_
+	_Configuring a PuTTY session_ -->
 
 1. In the treeview on the left, click the + sign next to **SSH**, and then click **Auth**. Click the  **Browse** button and select the private-key file that you created in Exercise 1.
 
-	![Entering the private key](Images/docker-putty2.png)
+	<!-- ![Entering the private key](Images/docker-putty2.png)
 
-	_Entering the private key_
+	_Entering the private key_ -->
 
 1. Select **Tunnels** in the treeview. Then set **Source port** to **22375** and **Destination** to **127.0.0.1:2375**, and click the **Add** button.
 
 	> The purpose of this is to forward traffic transmitted through port 22375 on the local machine (that's the port used by the **docker** command you will be using shortly) to port 2375 at the other end. Docker Swarm listens on port 2375.
-	
-	![Configuring the SSH tunnel](Images/docker-putty3.png)
 
-	_Configuring the SSH tunnel_
+	<!-- ![Configuring the SSH tunnel](Images/docker-putty3.png)
+
+	_Configuring the SSH tunnel_ -->
 
 1. Click **Session** at the top of the treeview. Click the **Save** button to save your configuration changes, and then click **Open** to create a secure SSH connection to the container service. If you are warned that the server's host key isn't cached in the registry and asked to confirm that you want to connect anyway, click **Yes**.
 
-	![Opening a connection to the container service](Images/docker-putty4.png)
+	<!-- ![Opening a connection to the container service](Images/docker-putty4.png)
 
-	_Opening a connection to the container service_
+	_Opening a connection to the container service_ -->
 
 1. An SSH window will open and prompt you to log in. Enter the user name that you specified in Exercise 1, Step 4. Then press the **Enter** key. If you successfully connected, you'll see a screen that looks like this:
 
-	![Successful connection](Images/docker-putty5.png)
+	<!-- ![Successful connection](Images/docker-putty5.png)
 
-	_Successful connection_
+	_Successful connection_ -->
 
 	> Observe that you didn't have to enter a password. That's because the connection was authenticated using the public/private key pair you generated in Exercise 1. Key pairs tend to be much more secure than passwords because they are cryptographically strong.
 
@@ -199,9 +199,9 @@ SLURM can be run in Docker containers, with each container instance acting as a 
 
 	Confirm that there are now nine Docker container instances running:
 
-	![Docker container instances](Images/docker-container-instances.png)
+	<!-- ![Docker container instances](Images/docker-container-instances.png)
 
-	_Docker container instances_
+	_Docker container instances_ -->
 
 Congratulations! You just created a SLURM cluster in a swarm of Docker containers hosted in an Azure container service. Now it is time to put the cluster to work.
 
@@ -212,29 +212,29 @@ In [Exercise 5](#Exercise5), you will run a Python script on the SLURM cluster t
 
 1. Return to the [Azure Portal](https://portal.azure.com) and click **Resource groups** in the ribbon on the left. Then click the resource group that holds the Azure Container Service instance you created in Exercise, and click **+ Add** in the resource group's blade.
 
-	![Adding a resource to ACSLabResourceGroup](Images/docker-add-storage-account-to-resource-group.png)
+	<!-- ![Adding a resource to ACSLabResourceGroup](Images/docker-add-storage-account-to-resource-group.png)
 
-	_Adding a resource to ACSLabResourceGroup_
+	_Adding a resource to ACSLabResourceGroup_ -->
 
 1. Type "Storage account" (without quotation marks) into the search box to filter the list of resources. Select **Storage account** from the search results. (There will probably be two instances of "Storage account" in the search results. Select the one that says "Web + Mobile" on the far right.) Then click the **Create** button at the bottom of the "Storage account" blade.
 
-	![Adding a storage account](Images/docker-add-storage-account.png)
+	<!-- ![Adding a storage account](Images/docker-add-storage-account.png)
 
-	_Adding a storage account_
+	_Adding a storage account_ -->
 
 1. Fill in the "Create storage account" blade as shown below, substituting a unique storage-account name for the one shown (remember that storage account names must be unique within Azure) and selecting the same location you selected for the container service. Then click the **Create** button.
 
-	![Creating a new storage account](Images/docker-create-storage-account.png)
+	<!-- ![Creating a new storage account](Images/docker-create-storage-account.png)
 
-	_Creating a new storage account_
+	_Creating a new storage account_ -->
 
 1. Wait for the storage account to be created. Then start the Microsoft Azure Storage Explorer. If you're prompted for credentials, sign in with the user name and password for your Microsoft account.
 
 1. In the Storage Explorer window, find the storage account that you just created. Expand the list of items underneath that storage account. Then right-click **Blob Containers** and select **Create Blob Container** from the menu.
 
-    ![Creating a new container](Images/docker-create-new-blob-container.png)
+    <!-- ![Creating a new container](Images/docker-create-new-blob-container.png)
 
-    _Creating a new container_
+    _Creating a new container_ -->
 
 1. Type "input" (without quotation marks) and press **Enter** to create a container named "input."
 
@@ -242,21 +242,21 @@ In [Exercise 5](#Exercise5), you will run a Python script on the SLURM cluster t
 
 1. Double-click the "input" container to show its contents. Then click the **Upload** button and select **Upload Files** from the menu.
 
-    ![Uploading images to the "input" container](Images/docker-upload-images.png)
+    <!-- ![Uploading images to the "input" container](Images/docker-upload-images.png)
 
-    _Uploading images to the "input" container_
+    _Uploading images to the "input" container_ -->
 
 1. Click the **...** button to the right of the field labeled "Files." In the ensuing dialog, navigate to this lab's "ColorImages" subdirectory and select all the files in that subdirectory. Then close the dialog and click the **Upload** button.
 
-    ![Uploading files to blob storage](Images/docker-upload-files-dialog.png)
+    <!-- ![Uploading files to blob storage](Images/docker-upload-files-dialog.png)
 
-    _Uploading files to blob storage_
+    _Uploading files to blob storage_ -->
 
 1. Confirm that all 49 files were uploaded to the "input" container.
 
-    ![Uploaded images](Images/docker-uploaded-images.png)
+    <!-- ![Uploaded images](Images/docker-uploaded-images.png)
 
-    _Uploaded images_
+    _Uploaded images_ -->
 
 You now have containers to hold input and output and a collection of color images in the input container. The next step is to prepare the scripts needed to configure the cluster and process the images.
 
@@ -267,15 +267,15 @@ With the SLURM cluster up and running in Docker containers and the color images 
 
 1. Return to the Azure Portal and open the blade for the storage account you created in [Exercise 3](#Exercise3). In the storage-account blade, click the key icon.
 
-    ![Accessing the storage account's access keys](Images/docker-storage-account-blade.png)
+    <!-- ![Accessing the storage account's access keys](Images/docker-storage-account-blade.png)
 
-    _Accessing the storage account's access keys_
+    _Accessing the storage account's access keys_ -->
 
 1. In the "Access keys" blade, click the **Copy** button to copy the storage account's primary access key to the clipboard.
 
-    ![Copying the primary access key to the clipboard](Images/docker-access-keys-blade.png)
+    <!-- ![Copying the primary access key to the clipboard](Images/docker-access-keys-blade.png)
 
-    _Copying the primary access key to the clipboard_
+    _Copying the primary access key to the clipboard_ -->
 
 1. Navigate to this lab's "docker-resources" directory. Open **slurmdemo.py** in a text editor and find the following section near the top of the file:
 
@@ -321,8 +321,8 @@ You've updated the Python script with the information it needs to access the sto
 	<pre>
 	docker -H 127.0.0.1:22375 exec -it linux0 python /slurmdemo.py
 	</pre>
-	
-After a second or two, the command should complete. Note that it might take 30 seconds or more for the Python script, which is running in the cloud in the various container instances, to convert all the images. 
+
+After a second or two, the command should complete. Note that it might take 30 seconds or more for the Python script, which is running in the cloud in the various container instances, to convert all the images.
 
 <a name="Exercise6"></a>
 ## Exercise 6: View the converted images
@@ -332,10 +332,10 @@ If the job ran successfully, the grayscale images generated from the color image
 1. Launch the Microsoft Azure Storage Explorer if it isn't already running.
 
 1. In Storage Explorer, double-click the container named "output" to see its contents.
- 
-    ![Contents of the output container](Images/docker-job-output.png)
 
-    _Contents of the output container_
+    <!-- ![Contents of the output container](Images/docker-job-output.png)
+
+    _Contents of the output container_ -->
 
 1. Double-click one of the blobs in the container. When the downloaded image opens, confirm that it's a grayscale image, not a color image. To be sure, download a few other images, too. If the images are grayscale, congratulations! You have a working SLURM cluster.
 
@@ -356,15 +356,15 @@ When virtual machines are running, you are being charged — even if the VMs are
 
 1. Wait for the **stop-slurm** command to finish. Then go to the Azure Portal and open the blade for the resource group that contains the container service. Click the virtual machine whose name begins with **swarm-master** to open a blade for the master VM.
 
-	![Opening a blade for the master VM](Images/docker-open-vm.png)
-	
-	 _Opening a blade for the master VM_
+	<!-- ![Opening a blade for the master VM](Images/docker-open-vm.png)
+
+	 _Opening a blade for the master VM_ -->
 
 1. Click the **Stop** button to stop the master VM. Answer **Yes** when prompted to verify that you wish to stop it.
 
-	![Stopping the master virtual machine](Images/docker-stop-vm.png)
-	
-	_Stopping the master virtual machine_
+	<!-- ![Stopping the master virtual machine](Images/docker-stop-vm.png)
+
+	_Stopping the master virtual machine_ -->
 
 There is no need to stop the agent VMs. They are part of an Azure Virtual Machine Scale Set and are automatically spun up and down as needed by the master VM. Note that if you wish to start the cluster again, you will need to restart the master VM before executing a **start-slurm** command.
 
@@ -377,9 +377,9 @@ In this exercise, you'll delete the resource group created in [Exercise 1](#Exer
 
 1. In the Azure Portal, open the blade for the resource group that holds the container service. Then click the **Delete** button at the top of the blade.
 
-	![Deleting a resource group](Images/docker-delete-resource-group.png)
+	<!-- ![Deleting a resource group](Images/docker-delete-resource-group.png)
 
-	_Deleting a resource group_
+	_Deleting a resource group_ -->
 
 1. For safety, you are required to type in the resource group's name. (Once deleted, a resource group cannot be recovered.) Type the name of the resource group.
 

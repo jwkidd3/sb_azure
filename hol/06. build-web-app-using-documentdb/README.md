@@ -25,23 +25,23 @@ To use Microsoft Azure DocumentDB, you must create a DocumentDB account.  This t
 
 1. Click **NEW** and select **Data + storage**, then  **DocumentDB** in order to create a new DocumentDB account.  
 
-    ![Creating a DocumentDB account](./images/creating-a-new-documentdb-account.png)
+    <!-- ![Creating a DocumentDB account](./images/creating-a-new-documentdb-account.png)
 
-    _Creating a DocumentDB account_
+    _Creating a DocumentDB account_ -->
 
 	> **Note:** Alternatively, from the Startboard, you can browse the Azure Marketplace, select the “Data analytics” category, choose **DocumentDB** and then click **Create**.
 
-	> ![Creating a DocumentDB Account from the Azure Marketplace](./images/creating-a-documentdb-from-market.png)
+	<!-- > ![Creating a DocumentDB Account from the Azure Marketplace](./images/creating-a-documentdb-from-market.png)
 
-	> _Creating a DocumentDB Account from the Azure Marketplace_
+	> _Creating a DocumentDB Account from the Azure Marketplace_ -->
 
 	This will open the **New DocumentDB (Preview)** blade.
 
 1. In the **New DocumentDB (Preview)** blade, enter a name to identify the DocumentDB account in the **Id** box (e.g.: _your-documentdb_) and specify the geographic location where your DocumentDB account will be hosted (e.g.: _West US_). You can update other configuration options based on the information below. Then click **Create**.
 
-	![Configuring the DocumentDB account](./images/new-documentdb-blade.png?raw=true)
+	<!-- ![Configuring the DocumentDB account](./images/new-documentdb-blade.png?raw=true)
 
-	_Configuring the DocumentDB account_
+	_Configuring the DocumentDB account_ -->
 
 	> **Note:** In the **New DocumentDB (Preview)** blade you can find the following options to be configured for a new DocumentDB account configuration:
 
@@ -59,9 +59,9 @@ To use Microsoft Azure DocumentDB, you must create a DocumentDB account.  This t
 
 	The DocumentDB account will be created. As this can take some time, you will proceed with the creation of the project and come back to retrieve some necessary information later, once the account creation has completed. Leave the browser open. You can monitor the creation progress on the **Notifications** Hub from time to time, if you wish to.
 
-	![Checking the creation status in the Notification Hub](./images/checking-the-creation-status-notification-hub.png?raw=true)
+	<!-- ![Checking the creation status in the Notification Hub](./images/checking-the-creation-status-notification-hub.png?raw=true)
 
-	_Checking the creation status in the Notification Hub_
+	_Checking the creation status in the Notification Hub_ -->
 
 
 In the next section you will be guided step by step to create a new ASP.NET MVC application from the ground up.
@@ -73,9 +73,9 @@ In this task you will create a new ASP.NET MVC project and configure a Microsoft
 
 1. Open Visual Studio and from the **File** menu, hover over the **New** option and click **Project**.
 
-    ![Creating a New Project](./images/newProject.png)
+    <!-- ![Creating a New Project](./images/newProject.png)
 
-    _Creating a New Project_
+    _Creating a New Project_ -->
 
 	> **Note:** You can open the end solution from [end/Todo](end/Todo) and configure it according to the instructions in [Setting up the end solution](end).
 
@@ -84,15 +84,15 @@ Name the project _Todo_, choose a **Location** and click **OK**.
 
 	> **Note:** You may also want to uncheck the **Add Application Insights to Project** if you don't want the functionality for your application.
 
-	![Creating a new ASP.Net Web Application project](images/creating-a-new-aspnet-web-application-project.png?raw=true)
+	<!-- ![Creating a new ASP.Net Web Application project](images/creating-a-new-aspnet-web-application-project.png?raw=true)
 
-    _Creating a new ASP.NET Web Application project_
+    _Creating a new ASP.NET Web Application project_ -->
 
 1. In the **New ASP.NET Project** dialog box, select **MVC**. Make sure that the **Host in the cloud** option is also selected, and change the Authentication method to **No Authentication**. Click **Ok**.
 
-	![Creating a new MVC project](images/creating-a-new-mvc-project.png?raw=true)
+	<!-- ![Creating a new MVC project](images/creating-a-new-mvc-project.png?raw=true)
 
-    _Creating a new project with the MVC template_
+    _Creating a new project with the MVC template_ -->
 
 	> **Note 1:** Selecting the _Host in the cloud_ option will preprovision an Azure Website for you and make life a lot easier when the time comes to deploy the final working application. If you want to host this elsewhere or don't want to configure Azure upfront, then just clear Host in the Cloud.
 
@@ -106,9 +106,9 @@ Name the project _Todo_, choose a **Location** and click **OK**.
 
 1. Click **OK**.
 
-	![Configuring Microsoft Azure Website](images/configuring-microsoft-azure-website.png?raw=true)
+	<!-- ![Configuring Microsoft Azure Website](images/configuring-microsoft-azure-website.png?raw=true)
 
-	_Configuring Microsoft Azure Website_
+	_Configuring Microsoft Azure Website_ -->
 
 The project will be created, and the authentication options and Azure Website options will be automatically configured with the project. The ASP.NET application can be run locally, if desired.
 
@@ -123,9 +123,9 @@ The DocumentDB .NET SDK is packaged and distributed as a NuGet package. To get t
 
 1. Right-click the **Todo** project in the Solution Explorer and then select **Manage NuGet Packages** to open the NuGet Package Manager dialog box.
 
-	![Opening Manage NuGet Packages](images/opening-manage-nuget-packages.png?raw=true)
+	<!-- ![Opening Manage NuGet Packages](images/opening-manage-nuget-packages.png?raw=true)
 
-	_Opening Manage NuGet Packages_
+	_Opening Manage NuGet Packages_ -->
 
 1. In the Search box, type **Azure DocumentDB**. From the results, select the **Microsoft Azure DocumentDB Client Libraries** package that has id **Microsoft.Azure.Documents.Client** and click **Install**.
 
@@ -133,8 +133,8 @@ The DocumentDB .NET SDK is packaged and distributed as a NuGet package. To get t
 
 	> **Note:** While the service is still in preview, the NuGet package is marked as "Prerelease", so you need to enable the "Include Prerelease" option in order to be able to find the package.
 
-	![Installing the Microsoft Azure DocumentDB Client Libraries](images/installing-microsoft-azure-documentdb.png?raw=true)
-	_Installing the Microsoft Azure DocumentDB Client Libraries_
+	<!-- ![Installing the Microsoft Azure DocumentDB Client Libraries](images/installing-microsoft-azure-documentdb.png?raw=true)
+	_Installing the Microsoft Azure DocumentDB Client Libraries_ -->
 
 	> **Note:** Alternatively, you can use the Package Command Console to install the package by typing the following:
 
@@ -144,15 +144,15 @@ The DocumentDB .NET SDK is packaged and distributed as a NuGet package. To get t
 
 1. You will be prompted to accept the license. Click **I Accept**.
 
-	![Accepting the license for Microsoft Azure Documents Client](images/accepting-the-license-for-ms-azure-documents.png?raw=true)
+	<!-- ![Accepting the license for Microsoft Azure Documents Client](images/accepting-the-license-for-ms-azure-documents.png?raw=true)
 
-	_Accepting the License for Microsoft.Azure.Documents.Client_
+	_Accepting the License for Microsoft.Azure.Documents.Client_ -->
 
 1. Once the package is installed, verify that two new references have been added to the **Todo** project:  _Microsoft.Azure.Documents.Client_ and _Newtonsoft.Json_. Your Visual Studio solution should resemble the following:
 
-	![References added to the solution](images/references-added-to-the-solution.png?raw=true)
+	<!-- ![References added to the solution](images/references-added-to-the-solution.png?raw=true)
 
-	_References added to the Solution_
+	_References added to the Solution_ -->
 
 <a name="setting-up-the-aspnet-mvc-app"></a>
 ##Setting up the ASP.NET MVC application
@@ -163,13 +163,13 @@ In this task you will set up the ASP.Net MVC application by adding a model, a co
 
 1. In **Solution Explorer**, right-click the **Models** folder of the **Todo** project and select **Add**. Then click **Class...**.
 
-    ![Adding a Model](images/adding-a-model.png?raw=true)
+    <!-- ![Adding a Model](images/adding-a-model.png?raw=true)
 
-    _Adding a new model class_
+    _Adding a new model class_ -->
 
 1. In the **Add New Item** dialog box, set the name of the file as _Item.cs_ and click **Add**.  
 
-	![Creating the Item class](images/creating-the-item-class.png?raw=true)
+	<!-- ![Creating the Item class](images/creating-the-item-class.png?raw=true) -->
 
 1. Replace the content of the new **Item.cs** file with the following.
 
@@ -201,27 +201,27 @@ In this task you will set up the ASP.Net MVC application by adding a model, a co
 
 1. In **Solution Explorer**, right-click the **Controllers** folder of the **Todo** project, click **Add**, and then click **Controller...**.
 
-	![Adding a Controller](images/adding-a-controller.png?raw=true)
+	<!-- ![Adding a Controller](images/adding-a-controller.png?raw=true)
 
-	_Adding a Controller_
+	_Adding a Controller_ -->
 
 1. In the **Add Scaffold** dialog box, select **MVC 5 Controller - Empty** and then click **Add**.
 
-	![Add Scaffold](images/add-scaffold.png?raw=true)
+	<!-- ![Add Scaffold](images/add-scaffold.png?raw=true)
 
-	_Adding the Scaffold_
+	_Adding the Scaffold_ -->
 
 1. Name your new Controller, **ItemController** and click **Add**.
 
-	![Naming the new Controller](images/naming-the-new-controller.png?raw=true)
+	<!-- ![Naming the new Controller](images/naming-the-new-controller.png?raw=true)
 
-	_Naming the new Controller_
+	_Naming the new Controller_ -->
 
 1. Once the file is created, in **Solution Explorer** your Visual Studio solution should resemble the following with the new **Item.cs** and **ItemController.cs** files just added.
 
-	![Solution after adding model and controller](images/solution-after-adding-model-and-controller.png?raw=true)
+	<!-- ![Solution after adding model and controller](images/solution-after-adding-model-and-controller.png?raw=true)
 
-	_Solution after adding the model and the controller_
+	_Solution after adding the model and the controller_ -->
 
 ###Adding views###
 Now you will add several views to make it possible to list, edit, delete and view the details of the existing To Do items and create new ones.
@@ -229,9 +229,9 @@ Now you will add several views to make it possible to list, edit, delete and vie
 ####Adding an Item Index View####
 1. In **Solution Explorer**, expand the **Views** folder. Right-click the empty **Item** folder, click **Add**, and then click **View...**.
 
-	![Adding a new View](images/adding-a-new-view.png?raw=true)
+	<!-- ![Adding a new View](images/adding-a-new-view.png?raw=true)
 
-	_Adding a new View_
+	_Adding a new View_ -->
 
 1. In the **Add View** dialog box, complete the following options and then click **Add**.
 	- In the **View name** box, type **Index**.
@@ -239,9 +239,9 @@ Now you will add several views to make it possible to list, edit, delete and vie
 	- In the **Model class** box, select **Item (Todo.Models)**.
 	- In the **Use a layout page** box, type **~/Views/Shared/_Layout.cshtml**.
 
-	![Adding the Index View](images/adding-the-index-view.png?raw=true)
+	<!-- ![Adding the Index View](images/adding-the-index-view.png?raw=true)
 
-	_Adding the Index View_
+	_Adding the Index View_ -->
 
 	Visual Studio will create a template view, named _Index.cshtml_. Once it is done, the cshtml file will open.
 
@@ -258,9 +258,9 @@ You will now create a new view for creating new Items, very much like you did in
 	- In the **Model class** box, select **Item (Todo.Models)**.
 	- In the **Use a layout page** box, type **~/Views/Shared/_Layout.cshtml**.
 
-	![Adding the Create View](images/adding-the-create-view.png?raw=true)
+	<!-- ![Adding the Create View](images/adding-the-create-view.png?raw=true)
 
-	_Adding the Create View_
+	_Adding the Create View_ -->
 
 ####Adding a Delete Item View####
 You will now create a new view for deleting Items.
@@ -273,9 +273,9 @@ You will now create a new view for deleting Items.
 	- In the **Model class** box, select **Item (Todo.Models)**.
 	- In the **Use a layout page** box, type **~/Views/Shared/_Layout.cshtml**.
 
-	![Adding the Delete View](images/adding-the-delete-view.png?raw=true)
+	<!-- ![Adding the Delete View](images/adding-the-delete-view.png?raw=true)
 
-	_Adding the Delete View_
+	_Adding the Delete View_ -->
 
 ####Adding an Edit Item View####
 Now, create a new view for editing existing Items.
@@ -288,9 +288,9 @@ Now, create a new view for editing existing Items.
 	- In the **Model class** box, select **Item (Todo.Models)**.
 	- Select **Create as a partial view**.
 
-	![Adding the Edit View](images/adding-the-edit-view.png?raw=true)
+	<!-- ![Adding the Edit View](images/adding-the-edit-view.png?raw=true)
 
-	_Adding the Edit View_
+	_Adding the Edit View_ -->
 
 ####Adding a Details View####
 Now, create a new view for viewing details of the Items.
@@ -303,9 +303,9 @@ Now, create a new view for viewing details of the Items.
 	- In the **Model class** box, select **Item (Todo.Models)**.
 	- Select **Create as a partial view**.
 
-	![Adding the Details View](images/adding-the-details-view.png?raw=true)
+	<!-- ![Adding the Details View](images/adding-the-details-view.png?raw=true)
 
-	_Adding the Details View_
+	_Adding the Details View_ -->
 
 Once this is done, close all the cshtml documents in Visual Studio. You will return to these views later.
 
@@ -326,7 +326,7 @@ In this task you will add code in the **ItemController** class to handle the fol
 
 	The file should look like this:
 
-	![ItemController class after removing all code](images/itemcontroller-class-after-removing-all-code.png?raw=true)
+	<!-- ![ItemController class after removing all code](images/itemcontroller-class-after-removing-all-code.png?raw=true) -->
 
 1. Add the following code snippet within the now empty **ItemController** class.
 
@@ -342,15 +342,15 @@ In this task you will add code in the **ItemController** class to handle the fol
 
 1. Right-click the **Todo** project and click **Add**. Then click **Class**.
 
-	![Adding a new class to the project](images/adding-a-new-class-to-the-project.png?raw=true)
+	<!-- ![Adding a new class to the project](images/adding-a-new-class-to-the-project.png?raw=true)
 
-	_Adding a new class_
+	_Adding a new class_ -->
 
 1. Once the **Add New Item** dialog box opens, name the new class **DocumentDBRepository** and click **Add**.
 
-	![Adding the DocumentDBRepository class](images/adding-the-documentdbrepository-class.png?raw=true)
+	<!-- ![Adding the DocumentDBRepository class](images/adding-the-documentdbrepository-class.png?raw=true)
 
-	_Adding the DocumentDBRepository class_
+	_Adding the DocumentDBRepository class_ -->
 
 1. Replace the content of the **DocumentDBRepository.cs** file just created with the following:
 
@@ -503,33 +503,33 @@ In this task you will add code in the **ItemController** class to handle the fol
 
 1. Switch to the browser instance in which you have the Azure Preview Portal open. Verify that the DocumentDB account has been created by looking for a **Created DocumentDB** notification in the **Notifications** Hub. If there is one, click it. If not, wait until the account finishes creating and the notification appears.
 
-	![creation-succeeded-notification-hub](./images/creation-succeeded-notification-hub.png?raw=true "Creation succeeded in Notification Hub")
+	<!-- ![creation-succeeded-notification-hub](./images/creation-succeeded-notification-hub.png?raw=true "Creation succeeded in Notification Hub")
 
-	_Creation succeeded in Notification Hub_
+	_Creation succeeded in Notification Hub_ -->
 
 1. Click on your new **DocumentDB** account under the resource group.
 
 	> **Note:** The default consistency of the DocumentDB account will be set to Session. You can adjust the default consistency setting via the [preview management portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB).
 
-	![The new DocumentDB account has been created](./images/new-documentdb-account-created.png?raw=true)
+	<!-- ![The new DocumentDB account has been created](./images/new-documentdb-account-created.png?raw=true)
 
-	_The new DocumentDB account has been created_
+	_The new DocumentDB account has been created_ -->
 
 	> **Note:** You can also access your existing DocumentDB accounts from the **Browse** blade.
 
-	> ![Accessing the DocumentDB accounts from the Browse blade](./images/accessing-the-documentdb-accounts-from-browse.png?raw=true)
+	<!-- > ![Accessing the DocumentDB accounts from the Browse blade](./images/accessing-the-documentdb-accounts-from-browse.png?raw=true)
 
-	> _Accessing the DocumentDB accounts from the Browse blade_
+	> _Accessing the DocumentDB accounts from the Browse blade_ -->
 
-	> ![Accessing the just created DocumentDB account](./images/accessing-the-new-documentdb-account.png?raw=true)
+	<!-- > ![Accessing the just created DocumentDB account](./images/accessing-the-new-documentdb-account.png?raw=true)
 
-	> _Accessing the DocumentDB account just created_
+	> _Accessing the DocumentDB account just created_ -->
 
 1. Now, click the **KEYS** button to open the **Keys** blade. Copy the endpoint **URI** and paste the value in the **Web.config** file open in Visual Studio, in place of the **URI** placeholder.
 
-	![Retrieving the keys of the DocumentDB account just created](./images/copying-your-documentdb-keys.png?raw=true)
+	<!-- ![Retrieving the keys of the DocumentDB account just created](./images/copying-your-documentdb-keys.png?raw=true)
 
-	_Retrieving the keys of the DocumentDB account just created_
+	_Retrieving the keys of the DocumentDB account just created_ -->
 
 1. Switch back to the browser in which the **Keys** blade is open and copy the **PRIMARY KEY** value. Switch to Visual Studio and paste it in the **Web.config** file, replacing the **PRIMARY KEY** placeholder.
 
@@ -575,9 +575,9 @@ In this task you will add code in the **ItemController** class to handle the fol
 
 	The page that opens should look like this:
 
-	![To Do App running locally](images/application-running-locally.png?raw=true)
+	<!-- ![To Do App running locally](images/application-running-locally.png?raw=true)
 
-	_To Do application running locally_
+	_To Do application running locally_ -->
 
 1. Stop debugging.
 
@@ -791,21 +791,21 @@ In this task you will verify that the application you built in the previous task
 
 	The application will be launched in a browser.
 
-	![Application running locally](images/application-running-locally.png?raw=true)
+	<!-- ![Application running locally](images/application-running-locally.png?raw=true)
 
-	_Application running locally_
+	_Application running locally_ -->
 
 1. Click the **Create new** link and add values to the Name and Description fields. Leave the Completed check box unselected; otherwise, the new Item will be added in a completed state and will not appear on the initial list.
 
-	![Testing creating an item](images/testing-creating-an-item.png?raw=true)
+	<!-- ![Testing creating an item](images/testing-creating-an-item.png?raw=true)
 
-	_Testing - Creating an item_
+	_Testing - Creating an item_ -->
 
 1. Click **Create**. You are redirected back to the **Index** view and your Item appears in the list.
 
-	![testing the app after creating an item](images/testing-the-app-after-creating-an-item.png?raw=true)
+	<!-- ![testing the app after creating an item](images/testing-the-app-after-creating-an-item.png?raw=true)
 
-	_Testing - the Index view after creating an item_
+	_Testing - the Index view after creating an item_ -->
 
 	Feel free to add a few more Items to your todo list.
 
@@ -813,21 +813,21 @@ In this task you will verify that the application you built in the previous task
 
 	> **Note:** (Warning) If you mark the **Completed** flag and click **Save**, the Item will no longer appear in the list of incomplete tasks. Please do not do this just yet.
 
-	![Testing editing an item](images/testing-editing-an-item.png?raw=true)
+	<!-- ![Testing editing an item](images/testing-editing-an-item.png?raw=true)
 
-	_Testing - Editing an item_
+	_Testing - Editing an item_ -->
 
 1. Back in the Index view, click **Details**. You will be taken to the Details view where all fields for the item are visible.
 
-	![Testing view details for an item](images/testing-view-details-for-an-item.png?raw=true)
+	<!-- ![Testing view details for an item](images/testing-view-details-for-an-item.png?raw=true)
 
-	_Testing - Viewing details for an item_
+	_Testing - Viewing details for an item_ -->
 
 1. Click **Back to List** and once in the Index view, click **Delete**. The app will navigate to the **Delete** view where you can confirm the deletion.
 
-	![Testing deleting an item](images/testing-deleting-an-item.png?raw=true)
+	<!-- ![Testing deleting an item](images/testing-deleting-an-item.png?raw=true)
 
-	_Testing - Deleting an item_
+	_Testing - Deleting an item_ -->
 
 1. Click **Delete**. You will be taken to the Index view, where you will see that the item no longer exists.
 
@@ -842,9 +842,9 @@ The following steps will show you how to deploy the application to Azure as an A
 
 1. In **Visual Studio**, right-click the **Todo** project and select **Publish**.
 
-	![Publishing the application](images/publish-web-application.png?raw=true)
+	<!-- ![Publishing the application](images/publish-web-application.png?raw=true)
 
-	_Publishing the application_
+	_Publishing the application_ -->
 
 	The **Publish Web** dialog box will appear with each setting already configured according to your credentials. In fact, the website has already been created in Azure for you at the Destination URL shown.
 
@@ -852,15 +852,15 @@ The following steps will show you how to deploy the application to Azure as an A
 
 1. Click **Publish**.
 
-	![Publish Web Dialog box](images/publish-web-dialog.png?raw=true)
+	<!-- ![Publish Web Dialog box](images/publish-web-dialog.png?raw=true)
 
-	_Publish Web Dialog box_
+	_Publish Web Dialog box_ -->
 
 	Once Visual Studio publishes the web application, it will launch a browser with the web application running. You can use it to perform the same operations you tried while running it locally.
 
-	![Application running in IE from Azure](images/application-running-in-ie-from-azure.png?raw=true)
+	<!-- ![Application running in IE from Azure](images/application-running-in-ie-from-azure.png?raw=true)
 
-	_Application running in IE from Azure_
+	_Application running in IE from Azure_ -->
 
 <!--
 1. Click on the **Next** button to go to the **Settings** page. You may be prompted to authenticate; make sure you authenticate using your Azure subscription account (typically a Microsoft account) and not the organizational account you created earlier.
@@ -884,17 +884,17 @@ To delete the website follow these steps:
 
 2. Click **BROWSE** in the Navigation hub on the left and then **Web Apps**.
 
-	![Browse websites](images/browse-websites.png?raw=true)
+	<!-- ![Browse websites](images/browse-websites.png?raw=true)
 
-	_Browsing websites_
+	_Browsing websites_ -->
 
 	A blade displaying all websites will be displayed.
 
 1. Select your website and click **DELETE** in the details blade.
 
-	![Clicking Delete website](images/clicking-delete-website.png?raw=true)
+	<!-- ![Clicking Delete website](images/clicking-delete-website.png?raw=true)
 
-	_Clicking Delete to delete website_
+	_Clicking Delete to delete website_ -->
 
 4. In the **Delete Confirmation** dialog, click **Yes**.
 
@@ -906,15 +906,15 @@ To delete the DocumentDB account proceed in a similar way:
 
 1. Click your documentDB account and in the details blade that opens, click **Delete**.
 
-	![Accessing the just created DocumentDB account](./images/accessing-the-new-documentdb-account.png?raw=true)
+	<!-- ![Accessing the just created DocumentDB account](./images/accessing-the-new-documentdb-account.png?raw=true)
 
-	_Accessing the DocumentDB account just created_
+	_Accessing the DocumentDB account just created_ -->
 
 1. In the confirmation blade that appears, type your documentDB account name and click **Delete**. The account will be deleted.
 
-	![Confirming deletion of DocumentDB account](images/confirm-deletion-of-documentdb-account.png?raw=true)
+	<!-- ![Confirming deletion of DocumentDB account](images/confirm-deletion-of-documentdb-account.png?raw=true)
 
-	_Confirming deletion of DocumentDB account_
+	_Confirming deletion of DocumentDB account_ -->
 
 ##Summary
 

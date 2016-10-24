@@ -5,7 +5,7 @@ Mobile Apps in Azure App Service offer a highly scalable, globally available mob
 
 Mobile Apps help you build native and cross platform apps, connect to your enterprise systems, connect to SaaS APIs easily, build offline-ready apps with sync and push Notifications to millions in seconds.
 
-In this lab, you create an App Service API app, deploy an ASP.NET Web API to the API app, and consume the API app from an AngularJS Web client. 
+In this lab, you create an App Service API app, deploy an ASP.NET Web API to the API app, and consume the API app from an AngularJS Web client.
 
 This lab includes the following tasks:
 
@@ -18,15 +18,15 @@ This lab includes the following tasks:
 ## Create a App Service Mobile App in Portal
 
 
-In this section, you will create a Azure App Service Mobile App backend. 
+In this section, you will create a Azure App Service Mobile App backend.
 
-1. Log into the [Azure Portal](https://portal.azure.com/). In the top left the window, click **+NEW**. 
+1. Log into the [Azure Portal](https://portal.azure.com/). In the top left the window, click **+NEW**.
 
 2. Click **Web + Mobile** and then click **Mobile App**.
 
 3. Enter a unique **App Service Name**. Select **Subscription**. Create a new **Resource group** named contactlisting. **Resource Group**. Create a new **App Service Plan** in the region you want to run the lab in.
 
-   ![](./images/creating-portal.PNG)
+   <!-- ![](./images/creating-portal.PNG) -->
 
 4. Click **Create**.
 
@@ -40,7 +40,7 @@ ContactsList.API - An ASP.NET Web API project that returns a list of names and e
 ContactsList.Angular - An AngularJS client, for demonstrating CORS support.
 
 1. Download the sample application:
-	
+
 	>Download the solution from [/source/ContactList](https://github.com/opsgility/DevCamp/tree/master/HOL/build-mobile-app-with-web-client/source/ContactList).
 
 2. You can Download a .zip file or clone the repository on your local machine.
@@ -59,7 +59,7 @@ In this section of the tutorial you take a look at the generated Swagger 2.0 met
 
 	The browser opens and shows the 403 Forbidden page.
 
-   ![](./images/swagger-download.png)
+   <!-- ![](./images/swagger-download.png) -->
 
 3. In your browser address bar, add swagger/docs/v1 to the end of the line, and then press Return. (The URL will be http://localhost:{port-num}/swagger/docs/v1.)
 
@@ -71,7 +71,7 @@ In this section of the tutorial you take a look at the generated Swagger 2.0 met
 
 6. When the Swagger UI page appears, click Contacts to see the methods available.
 
-   ![](./images/swagger-ui.png)
+   <!-- ![](./images/swagger-ui.png) -->
 
 <a name="publish-a-ContactList-web-api"></a>
 ## Publish a ContactList Web Api
@@ -82,11 +82,11 @@ In this section you use Azure tools that are integrated into the Visual Studio P
 
 2. In the Profile step of the Publish Web wizard, click Microsoft Azure App Service.
 
-   ![](./images/publish-button.png)
+   <!-- ![](./images/publish-button.png) -->
 
 3. In the dialog box, Select Existing Web App. Select the App Service which was created for Web API and Click **OK** which will donwload the publish profiles of the particular web app and click on **Publish**.
 
-   ![](./images/publish-connection.png)
+   <!-- ![](./images/publish-connection.png) -->
 
 4. Once the application is created, Add "swagger" to the URL in the browser's address bar, and then press Enter. (The URL will be http://{apiappname}.azurewebsites.net/swagger.)
 
@@ -96,10 +96,10 @@ In this section you use Azure tools that are integrated into the Visual Studio P
 
 6. Click **Settings**, and then in the Settings blade find the API section and click API Definition.
 
-   ![](./images/portal-api-definition.png)
+   <!-- ![](./images/portal-api-definition.png) -->
 
    >The API Definition blade lets you specify the URL that returns Swagger 2.0 metadata in JSON format. When Visual Studio creates the API app, it sets the API definition URL to the default value that you saw earlier, which is the API app's base URL plus /swagger/docs/v1.
-   
+
 <a name="publish-a-ContactList-web-client-ui"></a>
 ## Publish a ContactList Web Client UI
 
@@ -122,7 +122,7 @@ In the ContactsList sample application, the ContactsList.Angular project is a si
 
 3. Set the ContactsList.API and ContactsList.Angular projects as startup projects, with ContactsList.API starting before ContactsList.Angular by right clicking on the Solution, opening the properties, and set both projects to Start.
 
-   ![](./images/multiple-start-projects.png)
+   <!-- ![](./images/multiple-start-projects.png) -->
 
 4. Press F5 to start the projects.
 
@@ -137,13 +137,13 @@ In the ContactsList sample application, the ContactsList.Angular project is a si
 
 ### Deploy the ContactsList.Angular project to the web app
 
-1. Before the solution will work when running against Azure you must enable CORS on the API App. 
+1. Before the solution will work when running against Azure you must enable CORS on the API App.
 
-2. Open the API App that you created earlier in the Azure Management Portal, within SETTINGS click CORS. 
- 
-4. In the ALLOWED ORIGINS section add * and click Save on the toolbar. 
+2. Open the API App that you created earlier in the Azure Management Portal, within SETTINGS click CORS.
 
-  ![](./images/enable-cors.png)
+4. In the ALLOWED ORIGINS section add * and click Save on the toolbar.
+
+  <!-- ![](./images/enable-cors.png) -->
 
 
 5. In Solution Explorer, right-click the ContactsList.Angular project, and then click Publish.
@@ -154,19 +154,19 @@ In the ContactsList sample application, the ContactsList.Angular project is a si
 
 8. Expand File Publish Options, and then select Remove additional files at destination.
 
-   ![](./images/publish-code-list.png)
+   <!-- ![](./images/publish-code-list.png) -->
 
 	Normally when you deploy a web project to an existing App Service web app you don't want the "remove additional files" option because any changes are typically updates or new files. In this case you're deploying a different project to the same web app, so there are likely to be many files from the earlier deployment that aren't needed in the new one.
 
 9. Click Publish.
- 
+
 
 <a name="test-the-mobile-and-web-apps"></a>
-## Test the Mobile and Web Apps 
+## Test the Mobile and Web Apps
 
 1. Refresh the local client now that it has been updated to point to the API in Azure.
 
-   ![View of Web Application in the Browser](./images/validated-azure-api.png)
+   <!-- ![View of Web Application in the Browser](./images/validated-azure-api.png) -->
 
 ##Summary
 
@@ -174,5 +174,3 @@ By completing this lab you have learned how to:
 
 * Create an Azure App Service API backend
 * Use the same underlying API App for a web app
-
-
