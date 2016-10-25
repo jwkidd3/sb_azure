@@ -28,7 +28,7 @@ The following are required to complete this hands-on lab:
 
 - An active Microsoft Azure subscription. Use the one you created in Lab 1, or [sign up for a free trial](http://aka.ms/WATK-FreeTrial)
 - [Visual Studio Code](https://code.visualstudio.com/download)
-- [PHP for Windows](http://windows.php.net/download/)
+- [PHP for Windows](http://windows.php.net/download/) <---THIS IS NOT REQUIRED
 
 ---
 <a name="Exercises"></a>
