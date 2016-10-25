@@ -33,7 +33,7 @@ In this section, you will create a Azure App Service Mobile App backend.
 <a name="#overview-of-the-sample-application"></a>
 ## Overview of the Sample application
 
-The code that you'll deploy to an API app and a web app for this tutorial is in the Azure-Samples/app-service-api-dotnet-contact-list GitHub repository. The ContactsList Visual Studio solution includes the following projects used in this tutorial:
+The code that you'll deploy to an API app and a web app for this lab is in the Azure-Samples/app-service-api-dotnet-contact-list GitHub repository. The ContactsList Visual Studio solution includes the following projects used in this lab:
 
 ContactsList.API - An ASP.NET Web API project that returns a list of names and email addresses. The initial call to the Get method returns 3 hard-coded contacts, then subsequent calls to Put, Post, and Delete methods save changes in a local JSON file.
 
@@ -51,7 +51,7 @@ ContactsList.Angular - An AngularJS client, for demonstrating CORS support.
 
 ### Use Swagger metadata and UI
 
-In this section of the tutorial you take a look at the generated Swagger 2.0 metadata, and then you try out a test UI that is based on the Swagger metadata.
+In this section of the lab you take a look at the generated Swagger 2.0 metadata, and then you try out a test UI that is based on the Swagger metadata.
 
 1. Set the ContactsList.API project as the startup project.
 
@@ -103,7 +103,7 @@ In this section you use Azure tools that are integrated into the Visual Studio P
 <a name="publish-a-ContactList-web-client-ui"></a>
 ## Publish a ContactList Web Client UI
 
-This tutorial shows how to consume an API app from JavaScript code in a website that is served from a different domain than the API app. The sample client uses AngularJS.
+This lab shows how to consume an API app from JavaScript code in a website that is served from a different domain than the API app. The sample client uses AngularJS.
 
 In the ContactsList sample application, the ContactsList.Angular project is a simple AngularJS client for the ContactsList.API Web API project.
 
