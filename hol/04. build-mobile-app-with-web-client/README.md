@@ -39,9 +39,7 @@ ContactsList.API - An ASP.NET Web API project that returns a list of names and e
 
 ContactsList.Angular - An AngularJS client, for demonstrating CORS support.
 
-1. Download the sample application:
-
-	>Download the solution from [/source/ContactList](https://github.com/opsgility/DevCamp/tree/master/HOL/build-mobile-app-with-web-client/source/ContactList).
+1. Download the sample application
 
 2. You can Download a .zip file or clone the repository on your local machine.
 
