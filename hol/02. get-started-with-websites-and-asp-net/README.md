@@ -79,7 +79,7 @@ In this task you will create the web application that is going to be used throug
 
 1. In your browser, go to [http://portal.azure.com](http://portal.azure.com), and sign in with your Azure credentials.
 
-	On the left, click on **NEW** and **Data + Storage** and followed by **SQL Database** in the Data Storage section which is a database as a service.
+	On the left, click on **NEW** and **Databases** and followed by **SQL Database** in the Data Storage section which is a database as a service.
 
 2. Fill the details in **SQL Database** section.
 
