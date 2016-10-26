@@ -39,13 +39,11 @@ ContactsList.API - An ASP.NET Web API project that returns a list of names and e
 
 ContactsList.Angular - An AngularJS client, for demonstrating CORS support.
 
-1. Download the sample application
+1. Download the sample application (web_mobile.tar)
 
-2. You can Download a .zip file or clone the repository on your local machine.
+2. Open the ContactsList solution in Visual Studio 2015 or 2013.
 
-3. Open the ContactsList solution in Visual Studio 2015 or 2013.
-
-4. Build the solution to restore the NuGet packages.
+3. Build the solution to restore the NuGet packages.
 
 ### Use Swagger metadata and UI
 
