@@ -67,13 +67,13 @@ In this task, you will learn about the portal and how to create a new Web App an
 
 	<!-- > ![Tour](Images/tour.png?raw=true) -->
 
- 6. Select *App Service Name* option, another blade is opened which displays the options to create a new **Web app**. Select a URL for your Web app, for example _myMSAzureWebsite_. Take into account that this name must be unique. Also fill in the **Create new App Service Plan** or **Select existing** if you already have one.
+ 6. Enter an *App Service Name*. This will be the URL for your Web app, for example _myMSAzureWebsite_. Take into account that this name must be unique. Also fill in the **Create new App Service Plan** or **Select existing** if you already have one.
 
 	<!-- ![Creating the App Service Plan](Images/changing-the-web-hosting-plan.png?raw=true)
 
 	_Creating the App Service Plan_ -->
 
- 7. If you would like to change the Pricing Tier, click on the **Pricing Tier**. In the _Choose your pricing tier_ blade, you can choose the App Service plan that fits your needs.
+ 7. If you would like to change the Pricing Tier, click on the **App Service Plan**. In the _App Service Plan_ blade, you can choose the App Service plan that fits your needs or create a new one that uses a different geo location due to quotas.
 
 	App Service plans represent a set of features and capacity that you can share across your App Service Apps, including Web Apps. App Service plans support several pricing tiers (e.g. Free, Shared, Basic, Standard and Premium), each with its own capabilities. There are a couple of differences among these tiers. Plans in the Free and Shared tier provide sites with a shared infrastructure, meaning that your sites share resources with other customers' sites. App Service plans in the Basic, Standard and Premium tiers provider sites with a dedicated infrastructure, meaning that only the app or apps you choose to associate with this plan will be running on those resources. In this tier you can configure your App Service Plan to use one or more virtual machine instances. As we are going to use the default App Service plan, just close this blade.
 
@@ -83,9 +83,7 @@ In this task, you will learn about the portal and how to create a new Web App an
 
 	_Selecting a Pricing Tier_ -->
 
- 8. Select a relevant location and click OK.
-
- 9. Click **Database** to change the settings for your new database.
+ 9. Click **SQL Database** to change the settings for your new database.
 
 	>**Note:** If there are any existing databases asociated to the user, the **Database** blade will show up. Select **Create a new Database**.
 
@@ -93,7 +91,7 @@ In this task, you will learn about the portal and how to create a new Web App an
 
 	_Changing your database settings_ -->
 
- 10. Set a name for the database, e.g. _mywebsite-db_, and click the **Server** option.
+ 10. Set a name for the database, e.g. _mywebsite-db_, and click the **Target Server** option.
 
 	> **Note:** You can also enter in the **Pricing Tier** section and explore the different pricing tiers.
 
@@ -101,7 +99,7 @@ In this task, you will learn about the portal and how to create a new Web App an
 
 	_Database Settings_ -->
 
- 11. Enter the **Server Name**, **Server admin login** and a **Password**. Click **OK** to go back to the **New Database** blade, and click **OK** to close it.
+ 11. Enter the **Server Name**, **Server admin login** and a **Password**. Click **OK** to go back to the **New Database** blade, and click **OK** to close it. (You may have to click **Create a new Server**)
 
 	<!-- ![Configuring the Database Server](Images/configuring-the-database-server.png?raw=true)
 
