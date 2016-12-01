@@ -306,7 +306,7 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
     ?>  
     ```
 
-1. Repeat Steps 3 and 4 to add a file named **database.php** containing the following code to the project. This is the code used to interact with the MySQL database. Observe that the database connection string isn't embedded in the code, but is instead retrieved from an environment variable named *MYSQLCONNSTR_defaultConnection*. The value of this approach will be explained in the next exercise.
+1. Repeat Steps 3 and 4 to add a file named **database.php** containing the following code to the project. This is the code used to interact with the MySQL database. Observe that the database connection string isn't embedded in the code, but is instead retrieved from an environment variable named *MYSQLCONNSTR_localdb*.
 
     ```php
     <?php
@@ -317,7 +317,7 @@ In this exercise, you will use [Visual Studio Code](https://code.visualstudio.co
             public function __construct() {
                 // Notice that private connection information is *NOT* part of the source
                 // and therefore does not end up in public repos, etc.
-                $connectionString = getenv("MYSQLCONNSTR_defaultConnection");
+                $connectionString = getenv("MYSQLCONNSTR_localdb");
                 $varsString = str_replace(";","&", $connectionString);
                 parse_str($varsString);
 
@@ -508,15 +508,15 @@ There are several ways to provision an Azure Web App. In this exercise, you will
 
 	- In the **Subscription** field, select the subscription (for example, **Azure Pass**) that you wish to charge to.
 
-    - Make sure **Create new** is selected under **Resource Group**, and type "dxwebappintro" (without quotation marks) into the box below to name the new resource group.
+    - Make sure **Create new** is selected under **Resource Group**, and type "<user_name>dxwebappintro" (without quotation marks) into the box below to name the new resource group.
 
 		> Resource groups are a relatively recent addition to Azure and are a powerful construct for grouping resources such as storage accounts, databases, and virtual machines together so they can be managed as a unit. Imagine that you created a complex application consisting of multiple storage accounts, a cluster of VMs, a SQL database, and perhaps a Stream Analytics solution and a pair of event hubs. Now you want to create a new instance of the application using a different account. By assembling all these resources into a resource group, you can take advantage of [Azure deployment templates](https://azure.microsoft.com/en-us/documentation/articles/arm-template-deployment/) to script the creation of the entire application. In addition, you can use role-based security to restrict access to resources in a resource group, and you can delete the application — and all of the resources that comprise it — by deleting the resource group. You will learn more about resource groups and deployment templates in subsequent labs.
 
     - Click **App Service plan/Location**, and then click the **Create New** button in the blade that appears. An App Service plan determines the location and size of the virtual machine(s) that host your Web App. Multiple Azure App Service resources can share the same App Service so you can maximize your resource usage.
 
-        - Name the App Service plan "dxwebappintro" (without quotation marks).
+        - Name the App Service plan "<user_id>dxwebappintro" (without quotation marks).
 
-        - Set **Location** to the location nearest you.
+        - Set **Location** to the location assigned to you.
 
         - Click **Pricing tier** to see a list of available pricing options. The list that is shown will initially be limited to a handful of recommended options. Click **View all** to see all pricing options.
 
@@ -532,29 +532,9 @@ There are several ways to provision an Azure Web App. In this exercise, you will
 
 	        _Selecting the F1 pricing tier_ -->
 
-    - Click **Database** to open the "New MySQL Database" blade.
+    - Select **Database Provide** and choose "MySQL in App" .
 
-        - Set **Database Name** to "dxwebappintro" (without quotation marks).
-
-        - Leave **Database Type** set to **Shared**.
-
-        - Set **Location** to the same location you chose for your App Service plan.
-
-        - Click **Pricing Tier** and in the "Choose Your Pricing Tier" blade, select **Mercury**. Then click the **Select** button at the bottom of the blade.
-
-	        <!-- ![Selecting the Mercury pricing tier](Images/mercury-tier.png)
-
-	        _Selecting the Mercury pricing tier_ -->
-
-        - Click **Legal Terms**, review the offer details and terms of use, and click **Purchase**.
-
-        	> Nothing is actually being purchased since you selected the _Mercury_ MySQL database tier, which is free. In order to provision the MySQL database for you, Azure requires that you acknowledge the terms of use.
-
-        - Click **OK** at the bottom of the "New MySQL Database" blade.
-
-    - Check the **Pin to dashboard** box at the bottom of the "Web App + MySQL" blade.
-
-    - The "Web App + MySQL" blade should match the one below, with your Web-site name in place of "dxwebapp." Click the **Create** button to begin provisioning your Web App and database.
+    - Click the **Create** button to begin provisioning your Web App and database.
 
     <!-- ![Completed "Web App + MySQL" blade](Images/final-webappmysqlblade.png)
 
@@ -586,16 +566,16 @@ There are several ways to provision an Azure Web App. In this exercise, you will
 
     > If you're curious about the **Slot setting** boxes, here's a quick explanation. In the Azure App Service, the _Basic_, _Standard_, and _Premium_ pricing tiers tiers allow you to provision multiple **deployment slots** for a given Web App. You can use these slots in several ways, including setting up pre-production staging environments for testing code changes before putting them into production. The **Slot setting** boxes allow you to specify whether a setting or connection string applies to all deployment slots or only to a particular deployment slot.
 
-1. By default, connection strings are hidden for security reasons. Click **Show connection string values** to reveal them.
+1. By default, connection strings are hidden for security reasons. If so, you need to Click **Show connection string values** to reveal them.
 
     <!-- ![Showing connection string values](Images/provision-showconnectionstrings.png)
 
     _Showing connection string values_ -->
 
 
-1. Examine the **defaultConnection** value. It was automatically created when your Web App and MySQL database were provisioned. This is the value your application uses to connect to the MySQL database. It includes the server address (_Data Source_) for the database, the database name, and the user credentials for connecting to the database.
+1. Scroll down further to the MySQL in App to view the connection string information. For the MySQL app we are building the connection string information is stored here rather than in the default location. Observe the value: "MYSQLCONNSTR_localdb".
 
-Most platforms can access connection strings and app settings as environment variables. .NET applications can access them as if they were part of the application's web.config file. The PHP code that you added in [Exercise 1](#Exercise1) retrieves the default connection string by calling `getenv("MYSQLCONNSTR_defaultConnection");` You can find additional information about the conventions used to access these variables [here](https://azure.microsoft.com/en-us/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
+Most platforms can access connection strings and app settings as environment variables. .NET applications can access them as if they were part of the application's web.config file. The PHP code that you added in [Exercise 1](#Exercise1) retrieves the default connection string by calling `getenv("MYSQLCONNSTR_localdb");` You can find additional information about the conventions used to access these variables [here](https://azure.microsoft.com/en-us/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
 <a name="Exercise3"></a>
 ## Exercise 3: Deploy the Web site
