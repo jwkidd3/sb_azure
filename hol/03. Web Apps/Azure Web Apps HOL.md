@@ -26,7 +26,6 @@ In this hands-on lab, you will learn how to:
 
 The following are required to complete this hands-on lab:
 
-- An active Microsoft Azure subscription. Use the one you created in Lab 1, or [sign up for a free trial](http://aka.ms/WATK-FreeTrial)
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [PHP for Windows](http://windows.php.net/download/) <---THIS IS NOT REQUIRED
 
@@ -484,19 +483,19 @@ There are several ways to provision an Azure Web App. In this exercise, you will
 
 1. Open the [Azure Portal](https://portal.azure.com) in your browser. If you are asked to log in, do so using your Microsoft account.
 
-1. Click **+ New**. In the "New" blade that opens, type the words "web app mysql" (without quotation marks) into the search box and press **Enter**.
+1. Click **+ New**. In the "New" blade that opens, type the words "web app" This is same app type as we have deployed before (without quotation marks) into the search box and press **Enter**.
 
-    <!-- ![Finding the "Web App + MySQL" template](Images/find-webappmysql.png)
+    <!-- ![Finding the "Web App" template](Images/find-webappmysql.png)
 
     _Finding the "Web App + MySQL" template_ -->
 
-1. Two new blades named "Marketplace" and "Everything" will open in the portal. The former represents the [Microsoft Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/), which is an online store containing thousands of free templates for deploying apps, services, virtual machines, and more, preconfigured for Azure and provisioned with popular tools such as WordPress, CakePHP, and Django. In the "Everything" blade, click **Web App + MySQL**.
+1. Two new blades named "Marketplace" and "Everything" will open in the portal. The former represents the [Microsoft Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/), which is an online store containing thousands of free templates for deploying apps, services, virtual machines, and more, preconfigured for Azure and provisioned with popular tools such as WordPress, CakePHP, and Django. In the "Everything" blade, click **Web App**.
 
     <!-- ![Selecting the "Web App + MySQL" template](Images/select-webappmysql.png)
 
     _Selecting the "Web App + MySQL" template_ -->
 
-1. In the "Web App + MySQL" blade that opens, take a moment to review the text and learn what the template provisions. Then click the **Create** button at the bottom of the blade.
+1. In the "Web App" blade that opens, take a moment to review the text and learn what the template provisions. Then click the **Create** button at the bottom of the blade.
 
     <!-- ![Creating a Web App with MySQL](Images/create-web-app.png)
 
